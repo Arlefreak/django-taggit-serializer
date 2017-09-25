@@ -80,7 +80,7 @@ class TagListSerializerField(serializers.Field):
                     tags = value.all().order_by(*self.order_by)
                 else:
                     tags = value.all()
-                value = [{ 'id':tag.id, 'name': tag.name } for tag in tags] 
+                value = [{ 'tag_id':tag.id, 'tag': tag.name } for tag in tags] 
             value = TagList(value, pretty_print=self.pretty_print)
 
         return value
